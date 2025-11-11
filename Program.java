@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.Scanner;
 import tokens.*;
+import tokens.highLevel.*;
+
 import java.util.Arrays.*;
 
 public class Program {
@@ -15,7 +17,7 @@ public class Program {
         return -1;
     }
 
-    private static BaseToken tokens[] = {
+    private static BaseHighLevel tokens[] = {
         new Load("LOAD", (short) 1,(short) 1),
         new List("LIST", (short) 0, (short) 0),
         new Run("RUN", (short) 0, (short) 0),
@@ -25,7 +27,6 @@ public class Program {
         new Exit("EXIT", (short) 0, (short) 0)
     };
 
-    // Nicht Vergiss die Exception im Main beseitigen
     public static void main(String[] args) {
        while (true) {
             System.out.print("> ");
@@ -41,7 +42,7 @@ public class Program {
                 }
             }
             else 
-                System.out.println("false");
+                System.out.println("--- ERROR ---\nInvalid Command!");
             
        }
     }

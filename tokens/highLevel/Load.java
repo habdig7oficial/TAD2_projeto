@@ -1,16 +1,19 @@
-package tokens;
+package tokens.highLevel;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Load extends BaseToken {
+import lib.DataStructs.LinkedList;
+import tokens.BaseToken;
+
+public class Load extends BaseHighLevel {
     public Load(String name, short argsMin, short argsMax){
         super(name, argsMax, argsMax);
     }
 
     @Override
-    void callMethod(String... args) throws Exception {
+    protected void callMethod(String... args) throws Exception {
         String currentDir = System.getProperty("user.dir");
 
         Scanner file;

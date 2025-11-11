@@ -8,7 +8,7 @@ public abstract class BaseToken{
     private short argsMin;
     private short argsMax;
 
-    BaseToken(String name, short argsMin, short argsMax){
+    protected BaseToken(String name, short argsMin, short argsMax){
         this.name = name;
         this.argsMin = argsMin;
         this.argsMax = argsMax;
@@ -25,7 +25,7 @@ public abstract class BaseToken{
         callMethod(args);
     }
 
-    abstract void callMethod(String ...args) throws Exception;
+    abstract protected void callMethod(String ...args) throws Exception;
 
     @Override
     public boolean equals(Object obj) {

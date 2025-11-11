@@ -1,12 +1,14 @@
-package tokens;
+package tokens.highLevel;
 
-public class Insert extends BaseToken {
+import tokens.BaseToken;
+
+public class Insert extends BaseHighLevel {
     public Insert(String name, short argsMin, short argsMax){
         super(name, argsMax, argsMax);
     }
 
     @Override
-    void callMethod(String... args) {
+    protected void callMethod(String... args) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'callMethod'");
     }
