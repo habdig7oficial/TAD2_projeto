@@ -4,33 +4,35 @@ import tokens.*;
 public class Program {
     private static Scanner io = new Scanner(System.in);
 
-    private static boolean search(BaseToken arr[], String element){
-        for (BaseToken i : arr) {
+    private static short search(BaseToken arr[], String element){
+        for (short i = 0; i < arr.length; i++) {
             //System.out.println(element);
-            if(i.equals(element))
-                return true;
+            if(arr[i].equals(element))
+                return i;
         }
-        return false;
+        return -1;
     }
 
     private static BaseToken tokens[] = {
-        new Load("LOAD"),
-        new List("LIST"),
-        new Run("RUN"),
-        new Insert("INS"),
-        new Delete("DEL"),
-        new Save("SAVE"),
-        new Exit("EXIT")
+        new Load("LOAD", (short) 1,(short) 1),
+        new List("LIST", (short) 0, (short) 0),
+        new Run("RUN", (short) 0, (short) 0),
+        new Insert("INS", (short) 2, (short) 2),
+        new Delete("DEL", (short) 1, (short) 2),
+        new Save("SAVE", (short) 0, (short) 1),
+        new Exit("EXIT", (short) 0, (short) 0)
     };
 
-    public static void main(String[] args) {
+    // Nicht Vergiss die Exception im Main beseitigen
+    public static void main(String[] args) throws Exception {
        while (true) {
             System.out.print("> ");
             String input[] = io.nextLine().toUpperCase().split("\s");
 
             for (String i : input) {
-               if(search(tokens, i.trim())){
-                    System.out.println("true");
+               short location = search(tokens, i.trim());
+               if(location != -1){
+                    tokens[location].call(input);
                }
                else 
                     System.out.println("false");
