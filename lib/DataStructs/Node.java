@@ -1,8 +1,8 @@
 package lib.DataStructs;
 
 public class Node <Generic> { 
-    private Generic element; 
-    private Node<Generic> next; 
+    public Generic element; 
+    public Node<Generic> next; 
 
     public Node(Generic element, Node<Generic> next) {
         this.element = element;

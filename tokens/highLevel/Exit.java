@@ -1,10 +1,12 @@
 package tokens.highLevel;
 
+import lib.DataStructs.LinkedList;
 import tokens.BaseToken;
+import tokens.asm.Instruction;
 
 public class Exit extends BaseHighLevel {
-    public Exit(String name, short argsMin, short argsMax){
-        super(name, argsMax, argsMax);
+    public Exit(String name, short argsMin, short argsMax, LinkedList<Instruction> asmList){
+        super(name, argsMax, argsMax, asmList);
     }
 
     @Override

@@ -46,4 +46,9 @@ public abstract class BaseToken{
             return false;
         }
     }
+
+    @Override
+    public String toString(){
+        return String.format("%s", this.name);
+    }
 }

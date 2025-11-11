@@ -1,10 +1,12 @@
 package tokens.highLevel;
 
+import lib.DataStructs.LinkedList;
 import tokens.BaseToken;
+import tokens.asm.Instruction;
 
 public class Insert extends BaseHighLevel {
-    public Insert(String name, short argsMin, short argsMax){
-        super(name, argsMax, argsMax);
+    public Insert(String name, short argsMin, short argsMax, LinkedList<Instruction> asmList){
+        super(name, argsMax, argsMax, asmList);
     }
 
     @Override

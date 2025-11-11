@@ -1,6 +1,10 @@
 import java.util.Arrays;
 import java.util.Scanner;
+
+import lib.DataStructs.LinkedList;
+import lib.Searcher;
 import tokens.*;
+import tokens.asm.Instruction;
 import tokens.highLevel.*;
 
 import java.util.Arrays.*;
@@ -8,23 +12,16 @@ import java.util.Arrays.*;
 public class Program {
     private static Scanner io = new Scanner(System.in);
 
-    private static short search(BaseToken arr[], String element){
-        for (short i = 0; i < arr.length; i++) {
-            //System.out.println(element);
-            if(arr[i].equals(element))
-                return i;
-        }
-        return -1;
-    }
+    private static LinkedList<Instruction> asmList = new LinkedList<>();
 
     private static BaseHighLevel tokens[] = {
-        new Load("LOAD", (short) 1,(short) 1),
-        new List("LIST", (short) 0, (short) 0),
-        new Run("RUN", (short) 0, (short) 0),
-        new Insert("INS", (short) 2, (short) 2),
-        new Delete("DEL", (short) 1, (short) 2),
-        new Save("SAVE", (short) 0, (short) 1),
-        new Exit("EXIT", (short) 0, (short) 0)
+        new Load("LOAD", (short) 1,(short) 1, asmList),
+        new List("LIST", (short) 0, (short) 0, asmList),
+        new Run("RUN", (short) 0, (short) 0, asmList),
+        new Insert("INS", (short) 2, (short) 2, asmList),
+        new Delete("DEL", (short) 1, (short) 2, asmList),
+        new Save("SAVE", (short) 0, (short) 1, asmList),
+        new Exit("EXIT", (short) 0, (short) 0, asmList)
     };
 
     public static void main(String[] args) {
@@ -32,8 +29,9 @@ public class Program {
             System.out.print("> ");
             String input[] = io.nextLine().split("\s");
 
+            Searcher<BaseToken, String> s = new Searcher<BaseToken, String>();
 
-            short location = search(tokens, input[0].trim().toUpperCase());
+            short location = s.search(tokens, input[0].trim().toUpperCase()); 
             if(location != -1){
                 try {
                     tokens[location].call(Arrays.copyOfRange(input, 1, input.length));
