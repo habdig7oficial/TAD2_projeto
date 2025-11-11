@@ -25,7 +25,7 @@ public abstract class BaseToken{
         callMethod(args);
     }
 
-    abstract void callMethod(String ...args);
+    abstract void callMethod(String ...args) throws Exception;
 
     @Override
     public boolean equals(Object obj) {

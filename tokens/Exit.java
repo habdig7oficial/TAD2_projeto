@@ -7,7 +7,7 @@ public class Exit extends BaseToken {
 
     @Override
     void callMethod(String... args) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'callMethod'");
+        System.out.println("Danke Schön!\nAuf wiedersehen");
+        System.exit(0);
     }
 }

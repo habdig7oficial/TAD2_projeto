@@ -29,20 +29,20 @@ public class Program {
     public static void main(String[] args) {
        while (true) {
             System.out.print("> ");
-            String input[] = io.nextLine().toUpperCase().split("\s");
+            String input[] = io.nextLine().split("\s");
 
-            for (int i = 0; i < input.length; i++) {
-               short location = search(tokens, input[i].trim());
-               if(location != -1){
-                    try {
-                        tokens[location].call(Arrays.copyOfRange(input, i + 1, input.length));
-                    } catch (Exception e) {
-                        System.out.println("--- ERROR ---\n" + e.getMessage());
-                    }
-               }
-               else 
-                    System.out.println("false");
+
+            short location = search(tokens, input[0].trim().toUpperCase());
+            if(location != -1){
+                try {
+                    tokens[location].call(Arrays.copyOfRange(input, 1, input.length));
+                } catch (Exception e) {
+                    System.out.println("--- ERROR ---\n" + e.getMessage());
+                }
             }
+            else 
+                System.out.println("false");
+            
        }
     }
 }
