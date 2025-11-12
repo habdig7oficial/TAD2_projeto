@@ -1,6 +1,8 @@
 package lib.DataStructs;
 
-public class LinkedList <Generic> {
+import java.util.Iterator;
+
+public class LinkedList <Generic> implements Iterable<Generic> {
 
     private Node<Generic> root = null;
     private Node<Generic> leaf = null;
@@ -80,6 +82,11 @@ public class LinkedList <Generic> {
     }
 
     @Override
+    public Iterator<Generic> iterator(){
+        return new LinkedListIterator<Generic>(this);
+    }
+
+    @Override
     public String toString() {
         String str = "";
         Node<Generic> e = root;
@@ -109,3 +116,4 @@ public class LinkedList <Generic> {
         return str;
     }
 }
+

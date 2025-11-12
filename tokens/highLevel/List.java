@@ -11,6 +11,9 @@ public class List extends BaseHighLevel {
 
     @Override
     protected void callMethod(String... args) {
-        System.out.println(this.getAsmList().toCleanString());
+        System.out.println(this.getAsmList().iterator().hasNext());
+        while (getAsmList().iterator().hasNext()) {
+            System.out.println(getAsmList().iterator().next());
+        }
     }
 }
