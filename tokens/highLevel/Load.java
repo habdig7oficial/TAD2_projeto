@@ -1,5 +1,6 @@
 package tokens.highLevel;
 
+import java.lang.reflect.Constructor;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -43,6 +44,15 @@ public class Load extends BaseHighLevel {
                 short location = s.search(instructionSet, asmCommands[0].trim().toUpperCase());
                 if(location != -1){
                     try {
+                        Instruction newInstruction = null;
+                        switch (instructionSet[location]) {
+                            case Mov n:
+                                    newInstruction = new Mov(n.getName(), i, Arrays.copyOfRange(asmCommands, 1, asmCommands.length));
+                                break;
+                        
+                            default:
+                        }
+                        this.getAsmList().append(newInstruction);
                         System.out.println(instructionSet[location].getName());
                     } catch (Exception e) {
                         System.out.println("--- ERROR ---\n" + e.getMessage());

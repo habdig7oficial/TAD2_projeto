@@ -1,8 +1,8 @@
 package tokens.asm;
 
 public class Mov extends Instruction {
-    public Mov(String name, int lineNumber) {
-        super(name, (short) 2, (short) 2, lineNumber);
+    public Mov(String name, int lineNumber, String ...args) {
+        super(name, (short) 2, (short) 2, lineNumber, args);
     }
     @Override
     protected void callMethod(String... args) throws Exception {

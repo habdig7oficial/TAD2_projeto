@@ -22,7 +22,7 @@ public class LinkedList <Generic> {
         Node<Generic> n = new Node<Generic>(element);
         
         if(leaf != null) {
-            leaf.next = n;
+            leaf.setNext(n);
         }
         leaf = n; 
 
@@ -51,11 +51,11 @@ public class LinkedList <Generic> {
         Node<Generic> last = null; 
         
         for(int i = 0; i < this.length; i++){ 
-            if(e != null && e.element.equals(element)){
+            if(e != null && e.getElement().equals(element)){
                 if(last != null) {
-                    last.next = e.next;
+                    last.setNext(e.getNext());
                 } else {
-                    this.root = e.next;
+                    this.root = e.getNext();
                 }
                 if(e == this.leaf) {
                     this.leaf = last;
@@ -70,7 +70,7 @@ public class LinkedList <Generic> {
             
             last = e;    
             if (e != null) {
-                 e = e.next;
+                 e = e.getNext();
             } else {
                  break; 
             }
@@ -89,8 +89,8 @@ public class LinkedList <Generic> {
                  throw new IllegalStateException("Node unexpectedly null in toString loop.");
             }
             
-            str += "\"" + e.element.toString() + "\" ";
-            e = e.next;
+            str += "\"" + e.getElement().toString() + "\" ";
+            e = e.getNext();
         }
         return "[" + str.trim() + "]";
     }
@@ -103,8 +103,8 @@ public class LinkedList <Generic> {
             if (e == null) {
                  throw new IllegalStateException("Node unexpectedly null in toCleanString loop.");
             }
-            str += e.element.toString() + "\n";
-            e = e.next;
+            str += e.getElement().toString() + "\n";
+            e = e.getNext();
         }
         return str;
     }

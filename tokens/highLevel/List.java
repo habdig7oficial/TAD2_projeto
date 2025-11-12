@@ -11,7 +11,6 @@ public class List extends BaseHighLevel {
 
     @Override
     protected void callMethod(String... args) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'callMethod'");
+        System.out.println(this.getAsmList().toCleanString());
     }
 }
