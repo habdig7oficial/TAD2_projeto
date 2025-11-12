@@ -17,4 +17,15 @@ abstract public class Instruction extends BaseToken {
     public String[] getArgs() {
         return args;
     }
+
+    @Override
+    public String toString() {
+        String strBuilder = getName();
+
+        for (String string : args) {
+            strBuilder = String.format("%s %s", strBuilder, string);
+        }
+
+        return strBuilder;
+    }
 }

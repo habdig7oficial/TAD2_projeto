@@ -53,7 +53,7 @@ public class Load extends BaseHighLevel {
                             default:
                         }
                         this.getAsmList().append(newInstruction);
-                        System.out.println(instructionSet[location].getName());
+                        System.out.println(newInstruction);
                     } catch (Exception e) {
                         System.out.println("--- ERROR ---\n" + e.getMessage());
                     }

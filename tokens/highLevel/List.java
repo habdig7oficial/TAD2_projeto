@@ -1,5 +1,7 @@
 package tokens.highLevel;
 
+import java.util.Iterator;
+
 import lib.DataStructs.LinkedList;
 import tokens.BaseToken;
 import tokens.asm.Instruction;
@@ -11,9 +13,9 @@ public class List extends BaseHighLevel {
 
     @Override
     protected void callMethod(String... args) {
-        System.out.println(this.getAsmList().iterator().hasNext());
-        while (getAsmList().iterator().hasNext()) {
-            System.out.println(getAsmList().iterator().next());
+        for (Instruction e : getAsmList()) {
+            System.out.println(e);
+            System.out.println("ok");
         }
     }
 }
